@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>지하철 노선 맞추기</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="./assets/css/noscript.css" /></noscript>
+    
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+	<header id="header" class="alt">
+		<h1>지하철 노선 맞추기</h1>
+	</header>
+    <h1>user name : <%=name%></h1>
+    <h2>총 인원 : <span id="cnt"><%=cnt%></span> / 3</h2>    
+
+    <div id="main">
+        <!-- First Section -->
+        <section id="first" class="main special">
+            <header class="major">
+                <h2>User</h2>
+            </header>
+            <ul class="features" id="userWrap">
+                
+            </ul>
+        </section>
+
+        <div id="gameWrap" style="display:none">
+        
+            <h1 id="line_txt"></h1>
+            <input type="text" id="answer" name="answer"/>
+            <button type="button" id="send_btn">Send</button>
+        </div>
+    </div>
+
+</div>
+    
+    
+    <!-- Scripts -->
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/jquery.scrollex.min.js"></script>
+    <script src="./assets/js/jquery.scrolly.min.js"></script>
+    <script src="./assets/js/browser.min.js"></script>
+    <script src="./assets/js/breakpoints.min.js"></script>
+    <script src="./assets/js/util.js"></script>
+    <script src="./assets/js/main.js"></script>   
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/socket1.js"></script>
+</body>
+</html>

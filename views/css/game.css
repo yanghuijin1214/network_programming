@@ -1,0 +1,17 @@
+#userWrap div {
+    float:left;
+}
+
+#userWrap div h3 {
+    text-align:center;
+}
+#userWrap div h4 {
+    margin-top:-15px;
+    text-align:center;
+}
+
+#userWrap::after{
+    content:'';
+    display:block;
+    clear:both;
+}
