@@ -3,7 +3,7 @@
 
 ### 소켓 서버 : index.js
 
-### 소켓 클라이언트 : views/js 안의 js
+### 소켓 클라이언트 : views/js 안의 main.js map.js, socket.js , socket1.js
 
 views 폴더
 
