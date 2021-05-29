@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>지하철 탑승인원 정보</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./css/subway.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+    <noscript><link rel="stylesheet" href="./assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+        <div id="wrapper">
+            
+            <!-- Header -->
+                <header id="header" class="alt">
+                    <h2>대구 지하철 1호선 안심방면</h2>
+                </header>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="/" class="active">1호선</a></li>
+                        <li><a href="/">2호선</a></li>
+                        <li><a href="/">3호선</a></li>
+                    </ul>
+                </nav>
+
+                
+                <!-- Main -->
+               <div id="main">
+                <section id="first" class="main special">
+                <!-- First Section -->
+                    <iframe src="/map" class="map_frame" frameborder="0"></iframe>
+                    
+                </section>
+                <section id="content" class="main">
+                <%if(now){%>
+                
+                    <form action="total" method="post" id="cnt_frm">
+                        <h1><%=now%></h1>
+                        <div class="row gtr-uniform">
+                            <input type="hidden" name="now" id="now" value="<%= now %>" >
+                                <div class="col-6 col-12">
+                                    <h3>탑승 인원</h3>
+                                    <input type="text" name="in" id="in" placeholder="탑승 인원" />                                </div>
+                                <div class="col-6 col-12">
+                                    <h3>하차 인원</h3>
+                                    <input type="text" name="out" id="out" placeholder="하차 인원" />
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="primary">Send</button>
+                                </div>
+                        </div>
+                    </form>
+                <%}%>
+                <section>
+                    <div class="row">
+                        <div class="col-6 col-12-medium">
+                            <ul class="actions stacked">
+                                <li><a href="/game" class="button fit">지하철 노선 맞추기 게임</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+                </div>
+            <!-- Footer -->
+                <footer id="footer">
+                    <section>
+                        <h2>Etiam feugiat</h2>
+                        <dl class="alt">
+                            <dt>Address</dt>
+                            <dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+                            <dt>Phone</dt>
+                            <dd>(000) 000-0000 x 0000</dd>
+                            <dt>Email</dt>
+                            <dd><a href="#">information@untitled.tld</a></dd>
+                        </dl>
+                        <ul class="icons">
+                            <li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+                            <li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+                            <li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+                        </ul>
+                    </section>
+                </footer>
+
+        </div>
+    <!-- Scripts -->
+
+	<script src="./assets/js/jquery.min.js"></script>
+	<script src="./assets/js/jquery.scrollex.min.js"></script>
+	<script src="./assets/js/jquery.scrolly.min.js"></script>
+	<script src="./assets/js/browser.min.js"></script>
+	<script src="./assets/js/breakpoints.min.js"></script>
+	<script src="./assets/js/util.js"></script>
+	<script src="./assets/js/main.js"></script>    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

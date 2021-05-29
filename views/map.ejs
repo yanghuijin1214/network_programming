@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>지하철 탑승인원 정보</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="./css/subway.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="./assets/js/jquery.subwayMap-0.5.3.js"></script>
+    <style>
+        a:hover {
+            color:blueviolet;
+        }
+    </style>
+</head>
+<body>
+                <div style="width:100%; height:440px; overflow:hidden; overflow-y:hidden;">
+                <%if(data){ %>
+                        <div style=" position:relative;">
+                            <div class="subway-map" data-columns="12" data-rows="10" data-cellSize="80" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8">
+                                <ul data-color="#e03131" data-label="jQuery Widgets">
+                                    <li data-coords="8.5,4"></li> 
+                                    <%
+                                    var j=0;
+                                    for(var i=4;i>=1;i--) { 
+                                        for(var z=1;z<=8;z++){ 
+                                            if(i%2==0){%>
+                                            <li data-coords="<%=9-z%>,<%=i%>" data-labelPos="N"><a href="/?name=<%=data[j]%>"><%=data[j]%></a></li>
+                                            <%}else{%>
+                                            <li data-coords="<%=z%>,<%=i%>" data-labelPos="N" data-marker='<%= (data[j]=="명덕")||(data[j]=="반월당")?"interchange":"" %>' ><a href="/?name=<%=data[j]%>"><%=data[j]%></a></li>
+                                            <%}%>
+                                    <% j++;} }%>
+                                    <li data-coords="8.5,1"></li> 
+                                </ul>
+                                <ul data-color="#FF7936" id="car1" data-label="jQuery Interactions" data-shiftCoords="0,0" data-outline="true" data-dotted="false" data-reverseMarkers="true">
+                                    <%var a=4-parseInt(car[0].locate/8);
+                                    var a_next;var b;var b_next; 
+                                    var dir;
+                                    var labelPos1,labelPos2; 
+
+                                    if(a%2==0){
+                                        b=8-(car[0].locate%8);
+                                        if(b==1){
+                                            b_next=1;
+                                            a_next=a-1;
+                                            dir="&#129041;";
+                                            labelPos1="W";
+                                            labelPos2="E";
+                                        }
+                                        else{
+                                            b_next=b-1;
+                                            a_next=a;
+                                            dir="&#129040;";
+                                            labelPos1="N";
+                                            labelPos2="S";
+                                        }
+                                    } else{
+                                        b=1+car[0].locate%8;
+                                        if(b==8){
+                                            b_next=8;
+                                            a_next=a-1;
+                                            dir="&#129041;";
+                                            labelPos1="E";
+                                            labelPos2="W";
+                                        }
+                                        else{
+                                            b_next=b+1;
+                                            a_next=a;
+                                            dir="&#129042;";
+                                            labelPos1="N";
+                                            labelPos2="S";
+                                        }
+                                    }
+                                     %>
+                                    <li data-coords="<%=b%>,<%=a%>"></li>
+                                    <li data-coords="<%=(b+b_next)/2%>,<%=(a+a_next)/2%>" data-marker="none" data-labelPos="<%=labelPos1%>">	
+                                        <%=dir%></li>
+                                        <li data-coords="<%=(b+b_next)/2%>,<%=(a+a_next)/2%>" data-marker="none" data-labelPos="<%=labelPos2%>">	
+                                            <%=car[0].count%>/40</li>
+                                    <li data-coords="<%=b_next%>,<%=a_next%>"></li>
+                                </ul>
+    
+                                <ul data-color="#FF7936" id="car2" data-label="jQuery Interactions" data-shiftCoords="0,0" data-outline="true" data-dotted="false" data-reverseMarkers="true">
+                                    <%var a=4-parseInt(car[1].locate/8);
+                                    var a_next;var b;var b_next; 
+                                    var dir;
+                                    var labelPos1,labelPos2; 
+
+                                    if(a%2==0){
+                                        b=8-(car[1].locate%8);
+                                        if(b==1){
+                                            b_next=1;
+                                            a_next=a-1;
+                                            dir="&#129041;";
+                                            labelPos1="W";
+                                            labelPos2="E";
+                                        }
+                                        else{
+                                            b_next=b-1;
+                                            a_next=a;
+                                            dir="&#129040;";
+                                            labelPos1="N";
+                                            labelPos2="S";
+                                        }
+                                    } else{
+                                        b=1+car[1].locate%8;
+                                        if(b==8){
+                                            b_next=8;
+                                            a_next=a-1;
+                                            dir="&#129041;";
+                                            labelPos1="E";
+                                            labelPos2="W";
+                                        }
+                                        else{
+                                            b_next=b+1;
+                                            a_next=a;
+                                            dir="&#129042;";
+                                            labelPos1="N";
+                                            labelPos2="S";
+                                        }
+                                    }
+                                     %>
+                                    <li data-coords="<%=b%>,<%=a%>"></li>
+                                    <li data-coords="<%=(b+b_next)/2%>,<%=(a+a_next)/2%>" data-marker="none" data-labelPos="<%=labelPos1%>">	
+                                        <%=dir%></li>
+                                        <li data-coords="<%=(b+b_next)/2%>,<%=(a+a_next)/2%>" data-marker="none" data-labelPos="<%=labelPos2%>">	
+                                            <%=car[1].count%>/40</li>
+                                    <li data-coords="<%=b_next%>,<%=a_next%>"></li>
+                                </ul>
+                                <!--subway3-->
+                                <ul data-color="#FF7936" id="car3" data-label="jQuery Interactions" data-shiftCoords="0,0" data-outline="true" data-dotted="false" data-reverseMarkers="true">
+                                    <%var a=4-parseInt(car[2].locate/8);
+                                    var a_next;var b;var b_next;
+                                    var labelPos1,labelPos2; 
+                                    var dir;
+                                    if(a%2==0){
+                                        b=8-(car[2].locate%8);
+                                        if(b==1){
+                                            b_next=1;
+                                            a_next=a-1;
+                                            dir="&#129041;";
+                                            labelPos1="W";
+                                            labelPos2="E";
+                                        }
+                                        else{
+                                            b_next=b-1;
+                                            a_next=a;
+                                            dir="&#129040;";
+                                            labelPos1="N";
+                                            labelPos2="S";
+                                        }
+                                    } else{
+                                        b=1+car[2].locate%8;
+                                        if(b==8){
+                                            b_next=8;
+                                            a_next=a-1;
+                                            dir="&#129041;";
+                                            labelPos1="E";
+                                            labelPos2="W";
+                                        }
+                                        else{
+                                            b_next=b+1;
+                                            a_next=a;
+                                            dir="&#129042;";
+                                            labelPos1="N";
+                                            labelPos2="S";
+                                        }
+                                    }
+                                     %>
+                                    <li data-coords="<%=b%>,<%=a%>"></li>
+                                    <li data-coords="<%=(b+b_next)/2%>,<%=(a+a_next)/2%>" data-marker="none" data-labelPos="<%=labelPos1%>">	
+                                        <%=dir%></li>
+                                        <li data-coords="<%=(b+b_next)/2%>,<%=(a+a_next)/2%>" data-marker="none" data-labelPos="<%=labelPos2%>">	
+                                            <%=car[2].count%>/40</li>
+                                    <li data-coords="<%=b_next%>,<%=a_next%>"></li>
+                                </ul>
+                            </div>
+                        </div>
+                   <%}%>
+                </div>
+                <!-- Main -->
+
+    <!-- Scripts -->
+    <script type="text/javascript">
+        $(".subway-map").subwayMap({ debug: true });
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/map.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 const send_btn=document.getElementById('send_btn');
 var cnt=document.getElementById('cnt');
 var userWrap=document.getElementById('userWrap');
-const socket = io();
+const socket = io("/game");
 
 window.onload=function(){
     console.log('ready');
@@ -47,13 +47,11 @@ socket.on('img',function(data){
     li.appendChild(name);
     li.appendChild(score);
 
-
     userWrap.appendChild(li);
 })
 
 socket.on('score',function(data){
   if(data){
-    console.log(data);
     var score=document.getElementById('score'+data.number);
     score.innerText=data.score;
   }
@@ -87,6 +85,13 @@ socket.on('time_cnt',function(data){
 socket.on('line',function(data){
   var line_txt=document.getElementById('line_txt');
   line_txt.innerText="대구 "+data+" 호선"
+})
+
+socket.on('fin',function(data){
+  var gameWrap=document.getElementById('gameWrap');
+  console.log(data);
+  gameWrap.innerHTML="<div class='col-6 col-12-medium'><h2>게임 종료</h2> <h3>1등 : "+data.one+" </h3><h3>2등 : "+data.two+" </h3><h3>3등 : "+data.three+" </h3></div>";
+  socket.disconnect();
 })
 
 send_btn.onclick=function(){
