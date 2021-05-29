@@ -1,9 +1,9 @@
 # network_programming
 지하철 노선 맞추기 게임
 
-소켓 서버 : index.js
+### 소켓 서버 : index.js
 
-소켓 클라이언트 : views/js 안의 js
+### 소켓 클라이언트 : views/js 안의 js
 
 views 폴더
 
