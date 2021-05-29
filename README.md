@@ -6,6 +6,7 @@
 소켓 클라이언트 : views/js 안의 js
 
 views 폴더
+
 html(ejs) <-> client socket js
 
 index.ejs (메인 페이지)  ---- js/main.js  ( 해당 페이지의 소켓통신을 js에서 함) <br/>
