@@ -8,7 +8,7 @@
 views 폴더
 html(ejs) <-> client socket js
 
-index.ejs (메인 페이지)  ---- js/main.js
-map.ejs ---- js/map.js
-game.ejs ---- js/socket1.js
-game1.ejs ---- js/socket.js
+index.ejs (메인 페이지)  ---- js/main.js <br/>
+map.ejs ---- js/map.js <br/>
+game.ejs ---- js/socket1.js <br/>
+game1.ejs ---- js/socket.js <br/>
