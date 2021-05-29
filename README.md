@@ -7,9 +7,9 @@
 
 views 폴더
 
-html(ejs) <-> client socket js
+html(ejs) <-> client socket js  ( 해당 페이지의 소켓통신을 js에서 함)
 
-index.ejs (메인 페이지)  ---- js/main.js  ( 해당 페이지의 소켓통신을 js에서 함) <br/>
+index.ejs (메인 페이지)  ---- js/main.js  <br/>
 map.ejs ---- js/map.js <br/>
 game.ejs ---- js/socket1.js <br/>
 game1.ejs ---- js/socket.js <br/>
